@@ -1,32 +1,33 @@
 {
-  description = "Mini Lightroom Python Environment";
+  description = "Mini-Lightroom Dev Environment";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          name = "mini-lightroom-shell";
-          
-          packages = [
-            (pkgs.python3.withPackages (ps: with ps; [
-              numpy
-              pillow
-							matplotlib
-            ]))
-          ];
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
+    {
+      devShells.${system}.default = pkgs.mkShell {
+        name = "mini-lightroom-shell";
 
-          shellHook = ''
-            echo "Python: $(python --version)"
-          '';
-        };
-      }
-    );
+        packages = [
+          (pkgs.python3.withPackages (python-pkgs: [
+            python-pkgs.opencv4
+            python-pkgs.numpy
+						python-pkgs.pillow
+						python-pkgs.matplotlib
+          ]))
+          
+          pkgs.black
+        ];
+
+        shellHook = ''
+          echo "Python version: $(python --version)"
+        '';
+      };
+    };
 }

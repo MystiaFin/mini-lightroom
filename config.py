@@ -1,3 +1,4 @@
+ROTATION = True
 SHOW_COMPARISON = True
 # --- COLOR ---
 # Hue shift: Value between -180 to 180 (0 is neutral)
