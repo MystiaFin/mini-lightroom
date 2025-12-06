@@ -16,7 +16,7 @@ pip install opencv-python numpy pillow matplotlib
 - `pillow` (PIL) - Image loading and basic adjustments
 - `matplotlib` - Visual comparison display
 
-### Option 2: Nix Flake (Recommended for NixOS users)
+### Option 2: Nix Flake
 
 If you're using Nix with flakes enabled, simply run:
 
