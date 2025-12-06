@@ -1,16 +1,5 @@
 # Mini Python Lightroom
 
-A lightweight Python-based image processor that applies color grading and tonal adjustments to your photos, similar to Adobe Lightroom's basic adjustment panel.
-
-## Features
-
-- **Color Adjustments**: Hue shift, saturation control
-- **Channel Mixer**: Individual RGB channel adjustments
-- **Tonal Control**: Exposure (whites), blacks, shadow lifting
-- **Batch Processing**: Process multiple images at once
-- **Visual Comparison**: Side-by-side before/after preview
-- **Auto EXIF Rotation**: Handles image orientation metadata automatically
-
 ## Dependencies
 
 ### Option 1: Manual Installation (pip)
