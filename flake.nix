@@ -20,6 +20,7 @@
             python-pkgs.numpy
 						python-pkgs.pillow
 						python-pkgs.matplotlib
+						python-pkgs.scipy
           ]))
           
           pkgs.black
